@@ -17,6 +17,10 @@ public class AnimalService {
         this.animalRepository = animalRepository;
     }
 
+    public void deleteAnimal(Long id) {
+        animalRepository.deleteById(id);
+    }
+
     public Animal createAnimal(Animal animal) {
         return animalRepository.save(animal);
     }
@@ -33,6 +37,25 @@ public class AnimalService {
         if (animal.getDataNascimento() != null) {
             int idade = Period.between(animal.getDataNascimento(), LocalDate.now()).getYears();
             animal.setIdade(idade);
+        }
+    }
+
+    public Animal updateAnimal(Long id, Animal updatedAnimal) {
+        Optional<Animal> optionalAnimal = animalRepository.findById(id);
+
+        if (optionalAnimal.isPresent()) {
+            Animal existingAnimal = optionalAnimal.get();
+
+            existingAnimal.setNome(updatedAnimal.getNome());
+            existingAnimal.setDescricao(updatedAnimal.getDescricao());
+            existingAnimal.setUrlImagem(updatedAnimal.getUrlImagem());
+            existingAnimal.setCategoria(updatedAnimal.getCategoria());
+            existingAnimal.setDataNascimento(updatedAnimal.getDataNascimento());
+            existingAnimal.setStatus(updatedAnimal.getStatus());
+
+            return animalRepository.save(existingAnimal);
+        } else {
+            throw new RuntimeException("Animal not found with id: " + id);
         }
     }
 }

@@ -17,6 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/animals")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AnimalController {
 
     private AnimalService animalService;
@@ -45,5 +46,17 @@ public class AnimalController {
         Optional<Animal> animal = animalService.getAnimalById(id);
         animal.ifPresent(animalService::calcularIdade);
         return animal.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Animal> updateAnimal(@PathVariable Long id, @RequestBody @Valid Animal updatedAnimal) {
+        Animal animal = animalService.updateAnimal(id, updatedAnimal);
+        return new ResponseEntity<>(animal, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAnimal(@PathVariable Long id) {
+        animalService.deleteAnimal(id);
+        return ResponseEntity.noContent().build();
     }
 }

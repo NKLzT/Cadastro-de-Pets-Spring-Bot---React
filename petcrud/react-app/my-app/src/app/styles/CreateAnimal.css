@@ -1,0 +1,25 @@
+/* Arquivo: src/styles/CreateAnimal.css */
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 10px;
+}
+
+form label input {
+    width: 150%;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}

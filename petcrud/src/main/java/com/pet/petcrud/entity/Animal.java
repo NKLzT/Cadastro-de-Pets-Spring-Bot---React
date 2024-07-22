@@ -23,7 +23,7 @@ public class Animal {
     private String urlImagem;
     private String categoria;
     private LocalDate dataNascimento;
-    private String status; // Disponível, Adotado
+    private String status;
     private int idade;
 
 }

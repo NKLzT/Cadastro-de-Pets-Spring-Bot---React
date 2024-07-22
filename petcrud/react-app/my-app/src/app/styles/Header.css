@@ -1,0 +1,29 @@
+.header {
+    height: 1px;
+    padding: 0; /* Remove o preenchimento */
+    margin: 0; /* Remove a margem */
+}
+
+.main {
+    margin-top: 25px;
+    padding-top: 0; /* Remove o padding-top */
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-between; /* Altere para 'space-around' se preferir */
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0 160px; /* Ajuste o valor para aumentar ou diminuir o espaço */
+}
+
+.nav-item.logo {
+    flex-grow: 1;
+}
+
+.nav-link {
+    margin: 0 5px; /* Reduz a margem */
+}
