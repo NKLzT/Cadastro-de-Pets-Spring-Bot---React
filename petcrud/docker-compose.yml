@@ -25,7 +25,7 @@ services:
   client:
     build:
       context: ./react-app/
-      dockerfile: /my-app/Dockerfile
+      dockerfile: my-app/Dockerfile
     ports:
       - '3000:3000'
     depends_on:
