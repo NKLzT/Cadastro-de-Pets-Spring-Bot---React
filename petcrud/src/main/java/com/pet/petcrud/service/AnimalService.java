@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 public class AnimalService {
-    private AnimalRepository animalRepository;
+    private final AnimalRepository animalRepository;
 
     public AnimalService(AnimalRepository animalRepository) {
         this.animalRepository = animalRepository;
@@ -40,6 +40,10 @@ public class AnimalService {
         }
     }
 
+    public List<Animal> searchAnimals(String query) {
+        return animalRepository.findByNomeContaining(query);
+    }
+
     public Animal updateAnimal(Long id, Animal updatedAnimal) {
         Optional<Animal> optionalAnimal = animalRepository.findById(id);
 
@@ -55,7 +59,7 @@ public class AnimalService {
 
             return animalRepository.save(existingAnimal);
         } else {
-            throw new RuntimeException("Animal not found with id: " + id);
+            throw new RuntimeException("Animal não encontrado " + id);
         }
     }
 }

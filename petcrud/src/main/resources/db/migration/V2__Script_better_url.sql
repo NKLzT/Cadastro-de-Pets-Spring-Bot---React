@@ -1,0 +1,1 @@
+ALTER TABLE animal MODIFY url_imagem VARCHAR(500);

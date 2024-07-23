@@ -22,5 +22,14 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
 
+  client:
+    build:
+      context: ./react-app/
+      dockerfile: /my-app/Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
+
 volumes:
   pet_data:
