@@ -27,11 +27,8 @@ Certifique-se de que você está no diretório onde está o Dockerfile e execute
 
 bash
 docker-compose up --build .
-Substitua nome-da-imagem pelo nome que você deseja dar à sua imagem Docker.
 
-Executando o Contêiner:
-Depois que a imagem for construída com sucesso, você pode executar o contêiner:
-
+Pronto o projeto já deve estar rodando.
 
 Certifique-se de ajustar os caminhos e comandos conforme necessário.
 Isso deve resolver o problema do diretório não encontrado e permitir que seu aplicativo React seja executado corretamente dentro do contêiner Docker.
